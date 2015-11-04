@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'students/index'
+
   devise_for :students, controllers: {
     registrations: 'students/registrations',
     sessions: 'students/sessions',
@@ -10,7 +13,12 @@ Rails.application.routes.draw do
     sessions: 'companies/sessions',
     passwords: 'companies/passwords'
   }
-  root to: 'static_pages#home'
   
+  root to: 'static_pages#home'
   resources :requests
+  
+  get '/companies', to: 'companies#index'
+  get '/students', to: 'students#index'
+  
+  
 end

@@ -1,0 +1,14 @@
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="company_info">
+      </section>
+      <section class="new_request">
+        <p><%= link_to "New Request", new_request_path %></p>
+      </section>
+    </aside>
+    <aside class="col-md-8">
+      <section class="current_request">
+        <%= render partial: 'shared/request', collection: @requests %>
+      </section>
+    </aside>
+  </div>

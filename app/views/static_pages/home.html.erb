@@ -1,22 +1,9 @@
 <h1>StaticPages#home</h1>
-<% if company_signed_in? %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="company_info">
-      </section>
-      <section class="new_request">
-        <p><%= link_to "New Request", new_request_path %></p>
-      </section>
-    </aside>
-  </div>
-  <% else %>
-     <% unless student_signed_in? || company_signed_in? %>
+<% unless student_signed_in? || company_signed_in? %>
       <ul>
         <li><%= link_to "Student Sign Up", new_student_registration_path %></li>
         <li><%= link_to "Company Sign Up", new_company_registration_path %></li>
       </ul>
-    <% end %>
 <% end %>
-  
 
 

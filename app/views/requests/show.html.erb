@@ -8,6 +8,16 @@
     </div>
     
     <div class="project_content">
+      <h2>案件の種類</h2>
+      <p><%= @request.type %></p>
+    </div>
+    
+    <div class="project_content">
+      <h2>案件の緊急性</h2>
+      <p><%= @request.emergent %></p>
+    </div>
+    
+    <div class="project_content">
       <h2>概要</h2>
       <p><%= @request.description %></p>
     </div>
@@ -16,6 +26,28 @@
       <h2>予算</h2>
       <p><%= @request.budget %></p>
     </div>
+    
+    <div class="project_content">
+      <h2>想定所要時間</h2>
+      <p><%= @request.hours %></p>
+    </div>
 
+    <div class="project_content">
+      <h2>締め切り</h2>
+      <p><%= @request.period %></p>
+    </div>
+    
+    <div class="project_content">
+      <h2>あると良いスキル</h2>
+      <p><%= @request.required_skills %></p>
+    </div>
+    
+    <div class="project_content">
+      <h2>あると良い経験</h2>
+      <p><%= @request.required_background %></p>
+    </div>
+    
+    <%= link_to "edit" , edit_request_path(@request) %>
+    <%= link_to "destroy" , @request , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
   </div>
 </div>

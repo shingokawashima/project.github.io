@@ -1,6 +1,7 @@
 <li id="request-<%= request.id %>">
-  <span class="content"><%= request.request_title %></span>
+  <span class="content"><%= link_to request.request_name, request %></span></br>
+  <span class="content"><%= request.description %></span></br>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    Posted <%= time_ago_in_words(request.created_at) %> ago.
   </span>
 </li>
