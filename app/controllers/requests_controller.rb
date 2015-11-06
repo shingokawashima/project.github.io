@@ -35,6 +35,24 @@ class RequestsController < ApplicationController
     @request.destroy
     redirect_to root_path, notice: 'メッセージを削除しました'
   end
+  
+  def bid
+    @request = Request.find(params[:id])
+    @bid = Bid.create(bidder: current_student, bidded: @request, bidding_type: "Interested")
+    flash[:success] = "Thank you for your interest"
+    redirect_to @request
+  end
+    
+  def unbid
+    @request = Request.find(params[:id])
+    @bid = Bid.find_by(bidder: current_student, bidded: @request).destroy
+    flash[:success] = "Delete your interest"
+    redirect_to @request
+  end
+  
+  def bidding?(request)
+    biddeds.include?(request)
+  end
     
   private
   

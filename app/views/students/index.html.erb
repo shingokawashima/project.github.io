@@ -1,2 +1,16 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<div class="row">
+  <aside class="col-md-4">
+      <section class="request_search">
+        <p>Search your request here</p>
+        
+      </section>
+      <section class="user_info">
+        <p>Your profile</p>
+        
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>案件一覧</h3>
+      <%= render 'shared/request_list', requests: @requests %>
+  </div>
+</div>

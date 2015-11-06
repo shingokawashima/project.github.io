@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   }
   
   root to: 'static_pages#home'
-  resources :requests
+  resources :requests do
+    member do
+      get :bid
+      delete :unbid
+    end
+  end
   
   get '/companies', to: 'companies#index'
   get '/students', to: 'students#index'

@@ -1,0 +1,11 @@
+<ul>
+  <% requests.each do |r| %>
+    <li id="request-<%= r.id %>">
+  <span class="content"><%= link_to r.request_name, r %></span></br>
+  <span class="content"><%= r.description %></span></br>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(r.created_at) %> ago.
+  </span>
+</li>
+  <% end %>
+</ul>
