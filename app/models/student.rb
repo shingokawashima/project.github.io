@@ -15,9 +15,13 @@ class Student < ActiveRecord::Base
   #has_many :bids, class_name: "Bid"
   
   has_many :bidding_bids, class_name:  "Bid",
-                                     foreign_key: "bidder",
+                                     foreign_key: "bidder_id",
                                      dependent:   :destroy
-  has_many :bidding_requests, through: :bidding_bids, source: :bidded 
+  has_many :bidding_requests, through: :bidding_bids, source: :bidded
+  
+  def bidding?(request)
+   bidding_requests.include?(request)
+  end
   
   
 end

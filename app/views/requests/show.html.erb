@@ -55,15 +55,16 @@
     
     <% if student_signed_in? %>
       <% if current_student.bidding?(@request) %>
-        <%= link_to "興味をなくす", unbid_request_path(@request) %>
+        <%= link_to "興味をなくす", unbid_request_path(@request), method: :delete %>
       <% else %>
         <%= link_to "興味ある", bid_request_path(@request) %>
       <% end %>
     <% end %>
     
     <% if company_signed_in? %>
-    <%= link_to "edit" , edit_request_path(@request) %>
-    <%= link_to "destroy" , @request , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+    <%= link_to "edit", edit_request_path(@request) %>
+    <%= link_to "destroy", @request, method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+
     <% end %>
   </div>
 </div>
