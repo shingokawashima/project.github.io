@@ -11,7 +11,13 @@ class Student < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   
   has_many :messages, class_name: "Message"
-  has_many :requests, class_name: "Request"
-  has_many :bids, class_name: "Bid"
+  #has_many :requests, class_name: "Request"
+  #has_many :bids, class_name: "Bid"
+  
+  has_many :bidding_bids, class_name:  "Bid",
+                                     foreign_key: "bidder",
+                                     dependent:   :destroy
+  has_many :bidding_requests, through: :bidding_bids, source: :bidded 
+  
   
 end

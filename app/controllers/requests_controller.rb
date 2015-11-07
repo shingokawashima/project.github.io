@@ -50,9 +50,6 @@ class RequestsController < ApplicationController
     redirect_to @request
   end
   
-  def bidding?(request)
-    biddeds.include?(request)
-  end
     
   private
   
